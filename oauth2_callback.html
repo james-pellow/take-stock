@@ -3,14 +3,12 @@
   <head>
     <title>OAuth2 Callback</title>
     <script>
-      function redirect() {
-        const urlParams = new URLSearchParams(window.location.search);
-        const code = urlParams.get("code");
-        const state = urlParams.get("state");
-        const appRedirectUrl = `is.k3.takestock://callback?code=${code}&state=${state}`;
-        window.location = appRedirectUrl;
+      function onLoad() {
+        window.location = "is.k3.takestock://" + window.location.search;
       }
     </script>
   </head>
-  <body onload="redirect()"></body>
+  <body onload="onLoad()">
+    <h1>Redirecting...</h1>
+  </body>
 </html>
